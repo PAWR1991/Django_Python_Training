@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Message for LaR</title>
+</head>
+<body>
+	<form action="/add_message/{{id}}" method="post">
+		{% csrf_token %}
+		<textarea name="content" placeholder="Your message...."></textarea>
+		<input type="submit" value="Send message">
+
+	</form>
+
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</body>
+</html>

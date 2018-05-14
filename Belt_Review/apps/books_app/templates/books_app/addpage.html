@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Book and Comment page</title>
+</head>
+<body>
+	<a href="/books">Home</a>
+	<a href="/logout">Logout </a>
+	<h1>Add a New Book Title and Review:</h1>
+	<form action="/addbook" method="post">
+		{% csrf_token %}
+		Book Title: <input type="text" name="title"><br>
+		Author:<br>
+		Choose from the list: <select name="list">
+			<option> Paul the Great</option>
+		</select><br>
+		Or add a new author <input type="text" name="author"><br>
+		Review:<textarea name="desc"></textarea><br>
+		Rating: <select name="rating">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+		<input type="submit" value="Add Book and Review">
+
+	</form>
+
+</body>
+</html>

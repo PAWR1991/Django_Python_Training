@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home page</title>
+</head>
+<body>
+	<a href="/logout">Logout</a><br>
+	<a href="/dashboard">To the cook books</a>
+	<h1>You made it</h1>
+	<h2>{{ request.session.user_id }}</h2>
+	{{user.first_name}}
+	<hr>
+	{{users}}
+	<table border=1 >
+		<tr>
+			<th>Name</th>
+			<th>Send Message?</th>
+		</tr>
+		{% for user in users %}
+			<tr>
+				<th>{{user.first_name}} {{user.last_name}}</th>
+				<td><a href="/message/{{user.id}}"><button>Send Message</button></a></td>
+			</tr>
+		{%endfor%}
+
+	</table>
+
+	<hr>
+
+	{% if your_messages|length == 0 %}
+		<p>you have no new messages</p>
+	{% else %}
+		<p>You have {{your_messages|length}} new message(s)</p>
+		<a href="/view_message"><button>View Messages</button></a>
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Message</title>
+</head>
+<body>
+<h1> Your new messages</h1>
+	 
+	<hr>
+
+	{%for message in your_messages%}
+		<p><strong>{{message.sent_by.first_name}} says:</strong> {{message.created_at}}</p>
+		<p><pre>{{message.content}}</pre></p>
+		<hr>
+	{%endfor%}
+</body>
+</html>
